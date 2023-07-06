@@ -1,0 +1,49 @@
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.center-card{
+    display: flex;
+    justify-content: center;
+}
+
+.card-details h5{
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 0 20px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #2a9c9d;
+}
+
+.card-details p{
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 0 20px;
+  }
+
+  @media screen and (max-width: 945px) {
+    .card-container {
+      flex-direction: column;
+      align-items: center;
+    }
+    .card-image {
+      order: 1;
+    }
+    .card-details {
+      order: 1;
+      width: 100%;
+      justify-content: flex-start;
+      align-items: flex-start;
+      padding: 0 20px;
+    }
+  }
+
+
+

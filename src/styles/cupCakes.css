@@ -1,0 +1,65 @@
+.containercat {
+  font-family: Lato, sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100% ;
+  width: 100%;
+}
+
+.container h2{
+  font-family: 'Lato', sans-serif;
+  margin: 0;
+  height: 100% ;
+  width: 100%;
+  color: #f36273;
+  margin-top: 2%;
+  margin-bottom: 1%;
+  font-weight: bold;
+  padding: 1.5%;
+}
+
+.category-heading {
+  background-color: #f0f0f0;
+  border-radius: 10px 10px 10px 10px;
+}
+
+
+.container .card{
+  overflow-y: hidden !important;
+  height: 400px !important;
+}
+
+.container img{
+  overflow-y: hidden !important;
+  height: 250px !important;
+}
+
+.container img:hover{
+  transform: scale(1.2);
+  transition: all 0.7s ease-in-out;
+}
+
+@media (max-width: 1200px) {
+  .container img{
+    overflow-y: hidden !important;
+    height: 190px !important;
+  }
+}
+
+@media (max-width: 992px) {
+  .container img{
+    overflow-y: hidden !important;
+    height: 175px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .container img{
+    overflow-y: hidden !important;
+    height: 200px !important;
+  }
+  .container .card-text{
+    margin-top: 2rem;
+    font-size: large;
+  }
+}

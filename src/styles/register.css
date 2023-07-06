@@ -1,0 +1,241 @@
+.containerEver {
+  font-family: Lato, sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100% ;
+  width: 100%;
+}
+
+h1 {
+  color: #fff;
+}
+
+.fontStyle {
+  color: #f36273;
+  font-size: medium;
+  font-weight: bold;
+  font-family: 'Lato', sans-serif;
+}
+
+label {
+  font-family: 'Lato', sans-serif;
+}
+
+.login-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  padding: 40px;
+  transform: translate(-50%, -50%);
+  background: #f0f0f0;
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+}
+
+.login-box h2 {
+  margin: 0 0 2rem;
+  padding: 0;
+  color: #f36273;
+  text-align: center;
+  cursor: pointer;
+  font-family: 'Monserrat';
+  font-weight: bold;
+}
+
+.login-box p {
+  margin: -1rem 0 2rem;
+  padding: 0;
+  color: #2a9c9d;
+  text-align: center;
+  font-size: medium;
+  font-weight: bold;
+}
+
+.login-box .user-box {
+  position: relative;
+}
+
+.login-box .user-box input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #000000;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #2a9c9d;
+  outline: none;
+  background: transparent;
+}
+
+.login-box .user-box .password-input-container {
+  display: flex;
+  align-items: center;
+}
+
+.login-box .user-box .password-input-container input {
+  flex: 1;
+}
+
+.password-icon {
+  margin-left: 10px;
+  color: #050505;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 480px) {
+  .login-box {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .login-box .user-box {
+    margin-bottom: 20px;
+  }
+}
+
+button {
+  background-color: #2a9c9d;
+  color: #f0f0f0;
+  cursor: pointer;
+  border: none;
+  padding: 12px 25px;
+  font-size: 15px;
+  font-weight: bold;
+  font-family: 'Lato', sans-serif;
+  border-radius: 12px;
+  width: 100%;
+}
+
+button:hover {
+  background-color: #f36273;
+  color: #f0f0f0;
+}
+
+.link {
+  color: #f36273;
+  font-size: medium;
+  font-weight: bold;
+  text-decoration: none;
+  font-family: 'Lato', sans-serif;
+}
+
+.centerButton {
+  display: flex;
+  justify-content: center;
+}
+
+.googleButton {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2%;
+  background-color: #fff;
+  color: black;
+  font-family: 'Lato', sans-serif;
+}
+
+.googleButton img {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+}
+
+.googleButton:hover {
+  background-color: #fff;
+  color: #2a9c9d;
+}
+
+.register {
+  margin-top: 7%;
+  background-color: #fff;
+  height: 50px;
+  border-radius: 10px;
+  font-family: 'Lato', sans-serif;
+}
+
+
+.register p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 4.3%;
+  font-weight: bold;
+  font-family: 'Lato', sans-serif;
+}
+
+.login-back {
+  margin-top: 2rem;
+  margin-bottom: -2rem;
+}
+
+.register-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  padding: 40px;
+  transform: translate(-50%, -50%);
+  background: #f0f0f0;
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+}
+
+.register-box h2 {
+  margin: 0 0 2rem;
+  padding: 0;
+  color: #f36273;
+  text-align: center;
+  cursor: pointer;
+  font-weight: bold;
+  font-family: 'Lato', sans-serif;
+}
+
+.register-box p {
+  margin: -1rem 0 2rem;
+  padding: 0;
+  color: #2a9c9d;
+  text-align: center;
+  font-size: medium;
+  font-weight: bold;
+  font-family: 'Lato', sans-serif;
+}
+
+.register-box .user-box {
+  position: relative;
+}
+
+.register-box .user-box input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #000000;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #2a9c9d;
+  outline: none;
+  background: transparent;
+  font-family: 'Lato', sans-serif;
+}
+
+.register-box .user-box .password-input-container {
+  display: flex;
+  align-items: center;
+}
+
+.register-box .user-box .password-input-container input {
+  flex: 1;
+}
+
+@media screen and (max-width: 480px) {
+  .register-box {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .register-box .user-box {
+    margin-bottom: 20px;
+  }
+}
