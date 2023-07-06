@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API = "http://localhost:3000/api/v1";
+const API = "https://pastelito-backend.onrender.com/api/v1";
 
 export const registerRequest = (user) => axios.post(`${API}/users`, user);
 
