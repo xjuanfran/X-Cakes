@@ -19,7 +19,7 @@ export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [errors, setErrors] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [response, setResponse] = useState(null);
+  //const [response, setResponse] = useState(null);
 
   const signUp = async (user) => {
     try {
@@ -49,6 +49,17 @@ export const AuthProvider = ({ children }) => {
       );
     }
   };
+
+  const changePassWord = async (user) => {
+    try { 
+      const res = await changePassWordRequest(user);
+      console.log(res.data);
+    }
+    catch (err) {
+      console.log(err.response.data);
+    }
+  }
+
 
   const generateOrder = async (body) => {
     try {
@@ -109,6 +120,7 @@ export const AuthProvider = ({ children }) => {
       value={{
         signUp,
         signIn,
+        changePassWord,
         loading,
         user,
         isAuthenticated,
