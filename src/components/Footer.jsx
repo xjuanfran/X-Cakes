@@ -8,7 +8,7 @@ const Footer = () => {
         <footer className="footer">
       <div className="footer-content">
         <div className="footer-section">
-          <h2 className="footer-title">Benzema Cakes</h2>
+          <h2 className="footer-title">X Cakes</h2>
         </div>
         <div className="footer-section">
           <h3 className="footer-title">Contáctanos:</h3>
@@ -34,7 +34,7 @@ const Footer = () => {
           </ul>
         </div>
       </div>
-      <div className="footer-bottom">© 2023 Benzema Cakes – Todos los derechos reservados.</div>
+      <div className="footer-bottom">© 2023 X Cakes – Todos los derechos reservados.</div>
     </footer>
   );
 };
