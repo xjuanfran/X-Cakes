@@ -37,7 +37,7 @@ export default function Register() {
   return (
     <div className="containerEver">
       <div className="login-box">
-        <h2>Inicia sesión en Benzema Cakes</h2>
+        <h2>Inicia sesión en X Cakes</h2>
         {
           <p
             style={{

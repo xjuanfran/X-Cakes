@@ -73,7 +73,7 @@ function Navbar() {
     <header className="header">
       <div className="header__content">
         <Link to="/" className="header__content__logo">
-          Benzema Cakes
+          X Cakes
         </Link>
         {(location.pathname !== "/login" && location.pathname !== "/register") && (
           <>
