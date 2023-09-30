@@ -1,12 +1,17 @@
 import "../styles/recoveryPass.css";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
+
 
 export default function Register() {
   const { register, handleSubmit } = useForm();
+  const { recoveryPass } = useAuth();
+
 
   const onSubmit = handleSubmit((data) => {
-    console.log(data);
+    //console.log(data);
+    recoveryPass(data);
   });
 
   return (
@@ -21,7 +26,7 @@ export default function Register() {
             <input type="email" {...register("email")} required />
           </div>
           <div className="centerButton">
-            <button type="submit">Inicia sesión</button>
+            <button type="submit">Enviar</button>
           </div>
         </form>
         <div className="register">

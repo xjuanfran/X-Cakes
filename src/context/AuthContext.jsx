@@ -1,5 +1,5 @@
 import { createContext, useState, useContext, useEffect } from "react";
-import { registerRequest, loginRequest } from "../api/auth";
+import { registerRequest, loginRequest, recoverPasswordRequest } from "../api/auth";
 import {orderRequest} from "../api/product";
 import Cookies from "js-cookie";
 
@@ -19,7 +19,6 @@ export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [errors, setErrors] = useState([]);
   const [loading, setLoading] = useState(true);
-  //const [response, setResponse] = useState(null);
 
   const signUp = async (user) => {
     try {
@@ -50,16 +49,16 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  const changePassWord = async (user) => {
-    try { 
-      const res = await changePassWordRequest(user);
-      console.log(res.data);
+  const recoveryPass= (email) => {
+    try{
+      const res = recoverPasswordRequest(email);
+      console.log(res);
+      return res;
     }
-    catch (err) {
-      console.log(err.response.data);
+    catch(err){
+      console.log(err);
     }
-  }
-
+  };
 
   const generateOrder = async (body) => {
     try {
@@ -126,6 +125,7 @@ export const AuthProvider = ({ children }) => {
         isAuthenticated,
         errors,
         generateOrder,
+        recoveryPass
       }}
     >
       {children}
