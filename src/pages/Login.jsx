@@ -70,7 +70,7 @@ export default function Register() {
               />
             </div>
             <p>
-              <Link className="link" to="/">
+              <Link className="link" to="/recoveryPass">
                 ¿Olvidaste tu contraseña?
               </Link>
             </p>

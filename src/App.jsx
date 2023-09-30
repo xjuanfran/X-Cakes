@@ -10,6 +10,8 @@ import Profile from "./pages/Profile";
 import NavBar from "./components/NavBar";
 import Buy from "./pages/Buy";
 import ShoppingCar from "./pages/ShoppingCar";
+import RecoveryPass from "./pages/RecoveryPass";
+import ConfirmPass from "./pages/PassConfirm";
 
 import ProtectedRoute from "./ProtectedRoute";
 
@@ -26,6 +28,8 @@ function App() {
           <Route path="/catalogo" element={<CupCakes />} />
           <Route path="/buy" element={<Buy/>} />
           <Route path="/customCupCakes" element={<CustomCupCakes />} />
+          <Route path="/recoveryPass" element={<RecoveryPass />} />
+          <Route path="/confirmPass" element={<ConfirmPass />} />
 
           <Route element={<ProtectedRoute />}>
             <Route path="/profile" element={<Profile />} />
