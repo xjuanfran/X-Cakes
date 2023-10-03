@@ -34,6 +34,7 @@ function App() {
           <Route element={<ProtectedRoute />}>
             <Route path="/profile" element={<Profile />} />
             <Route path="/shoppingCar" element={<ShoppingCar/>} />
+
           </Route>
         </Routes>
       </BrowserRouter>

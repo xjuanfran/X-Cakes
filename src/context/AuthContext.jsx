@@ -1,5 +1,5 @@
 import { createContext, useState, useContext, useEffect } from "react";
-import { registerRequest, loginRequest, recoverPasswordRequest } from "../api/auth";
+import { registerRequest, loginRequest, recoverPasswordRequest, resetPasswordRequest } from "../api/auth";
 import {orderRequest} from "../api/product";
 import Cookies from "js-cookie";
 
@@ -51,7 +51,7 @@ export const AuthProvider = ({ children }) => {
 
   const recoveryPass= (email) => {
     try{
-      const res = recoverPasswordRequest(email);
+      const res = recoverPasswordRequest(email); //Here send the email to backend for send the email with the token
       console.log(res);
       return res;
     }
@@ -59,6 +59,17 @@ export const AuthProvider = ({ children }) => {
       console.log(err);
     }
   };
+  
+  const resetPass = (data) => {
+    try{
+      const res = resetPasswordRequest(data); // Here send the new password and the token to backend for reset the password
+      //console.log(res);
+      return res;
+    }
+    catch(err){
+      console.log(err);
+    }
+  }
 
   const generateOrder = async (body) => {
     try {
@@ -124,7 +135,8 @@ export const AuthProvider = ({ children }) => {
         isAuthenticated,
         errors,
         generateOrder,
-        recoveryPass
+        recoveryPass, 
+        resetPass
       }}
     >
       {children}

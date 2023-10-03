@@ -239,3 +239,60 @@ button:hover {
     margin-bottom: 20px;
   }
 }
+
+.pass-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  padding: 40px;
+  transform: translate(-50%, -50%);
+  background: #f0f0f0;
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+}
+
+.pass-box h2 {
+  margin: 0 0 2rem;
+  padding: 0;
+  color: #f36273;
+  text-align: center;
+  cursor: pointer;
+  font-family: 'Monserrat';
+  font-weight: bold;
+}
+
+.pass-box p {
+  margin: -1rem 0 2rem;
+  padding: 0;
+  color: #2a9c9d;
+  text-align: center;
+  font-size: medium;
+  font-weight: bold;
+}
+
+.pass-box .user-box {
+  position: relative;
+}
+
+.pass-box .user-box input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #000000;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #2a9c9d;
+  outline: none;
+  background: transparent;
+}
+
+.pass-box .user-box .password-input-container {
+  display: flex;
+  align-items: center;
+}
+
+.pass-box .user-box .password-input-container input {
+  flex: 1;
+}
