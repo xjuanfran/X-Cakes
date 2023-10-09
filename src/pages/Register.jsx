@@ -13,7 +13,7 @@ export default function Register() {
 
   useEffect(() => {
     if (isAuthenticated)
-      window.location.replace("/login");
+      window.location.replace("/");
   }, [isAuthenticated])
 
   const togglePasswordVisibility = () => {
