@@ -76,7 +76,7 @@ export default function PassConfirm() {
             </div>
           </div>
           <div className="centerButton">
-            <button type="submit">Inicia sesión</button>
+            <button type="submit">Cambiar</button>
           </div>
         </form>
       </div>
