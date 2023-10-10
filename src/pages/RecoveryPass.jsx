@@ -12,21 +12,35 @@ export default function Register() {
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
 
   const onSubmit = handleSubmit(async (data) => {
-    // Asegúrate de marcar la función como asíncrona
-    await recoveryPass(data); // Espera a que la función recoveryPass termine
-
-    // Marca que el formulario ha sido enviado
+    await recoveryPass(data);
+    // This is for show the toast message when the user click the button "Enviar" in the form depending if the email is correct or not
     setIsFormSubmitted(true);
   });
 
   useEffect(() => {
     if (isFormSubmitted) {
       if (isSendEmail) {
-        toast.success("Se ha enviado un correo electrónico a tu cuenta");
+        toast.success(
+          "Se ha enviado el correo con el enlace de reuperación de contraseña a su correo electrónico"
+        );
+        // This variable is used to count the time before redirecting to the home page only after receiving a response from the backend
+        let auxShow = true;
+        if (auxShow) {
+          setTimeout(() => {
+            window.location.replace("/");
+          }, 6500);
+        }
       } else {
         toast.error(
           "Por favor, verifique la dirección de correo electrónico e inténtelo de nuevo"
         );
+        // This variable is used to count the time before refresh the page only after receiving a response from the backend
+        let auxShow = true;
+        if (auxShow) {
+          setTimeout(() => {
+            window.location.reload();
+          }, 6500);
+        }
       }
     }
   }, [isSendEmail, isFormSubmitted]);
@@ -57,7 +71,7 @@ export default function Register() {
           </p>
         </div>
       </div>
-      <ToastContainer/>
+      <ToastContainer autoClose={6000} closeButton={false} />
     </div>
   );
 }
