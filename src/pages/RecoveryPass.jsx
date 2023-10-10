@@ -1,24 +1,35 @@
 import "../styles/recoveryPass.css";
-import { useForm } from "react-hook-form";
+import { set, useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
-import { React, useEffect } from "react";
+import { React, useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export default function Register() {
   const { register, handleSubmit } = useForm();
   const { recoveryPass, isSendEmail } = useAuth();
+  const [isFormSubmitted, setIsFormSubmitted] = useState(false);
 
-  const onSubmit = handleSubmit((data) => {
-    recoveryPass(data);
-    if (isSendEmail) { //falta, da false cuando escribo un correo que existe(no deberia)
-      toast.success("Se ha enviado un correo electrónico a tu cuenta");
-    }
-    else {
-      toast.error("El correo electrónico ingresado no existe");
-    }
+  const onSubmit = handleSubmit(async (data) => {
+    // Asegúrate de marcar la función como asíncrona
+    await recoveryPass(data); // Espera a que la función recoveryPass termine
+
+    // Marca que el formulario ha sido enviado
+    setIsFormSubmitted(true);
   });
+
+  useEffect(() => {
+    if (isFormSubmitted) {
+      if (isSendEmail) {
+        toast.success("Se ha enviado un correo electrónico a tu cuenta");
+      } else {
+        toast.error(
+          "Por favor, verifique la dirección de correo electrónico e inténtelo de nuevo"
+        );
+      }
+    }
+  }, [isSendEmail, isFormSubmitted]);
 
   return (
     <div className="containerEver">
@@ -46,7 +57,7 @@ export default function Register() {
           </p>
         </div>
       </div>
-      <ToastContainer />
+      <ToastContainer/>
     </div>
   );
 }

@@ -57,8 +57,8 @@ export const AuthProvider = ({ children }) => {
   const recoveryPass = async (email) => {
     try {
       const res = await recoverPasswordRequest(email); //Here send the email to backend for send the email with the token
-      setIsSendEmail(true);
       console.log(res);
+      setIsSendEmail(true);
       return res;
     } catch (err) {
       setIsSendEmail(false);
