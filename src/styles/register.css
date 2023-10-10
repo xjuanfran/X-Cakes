@@ -95,6 +95,7 @@ label {
   }
 }
 
+/* Estilos CSS para el botón */
 button {
   background-color: #2a9c9d;
   color: #f0f0f0;
@@ -104,13 +105,18 @@ button {
   font-size: 15px;
   font-weight: bold;
   font-family: 'Lato', sans-serif;
-  border-radius: 12px;
+  border-radius: 12px !important;
   width: 100%;
+  transition: transform 0.2s;
 }
 
 button:hover {
   background-color: #f36273;
   color: #f0f0f0;
+}
+
+button:active {
+  transform: scale(0.95); /* Reducir el tamaño al hacer clic */
 }
 
 .link {

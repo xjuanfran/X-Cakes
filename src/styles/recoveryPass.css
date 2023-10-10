@@ -7,3 +7,16 @@
     text-align: left !important;
 }
 
+.button-disable{
+    background: rgb(32, 32, 32);
+    color: white;
+}
+
+.button-disable:hover{
+    background: rgb(32, 32, 32);
+    color: white;
+}
+
+.button-disable:active{
+    transform: none;
+}

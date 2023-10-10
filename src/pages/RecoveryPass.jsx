@@ -39,7 +39,7 @@ export default function Register() {
         if (auxShow) {
           setTimeout(() => {
             window.location.reload();
-          }, 6500);
+          }, 7000);
         }
       }
     }
@@ -59,7 +59,7 @@ export default function Register() {
             <input type="email" {...register("email")} required />
           </div>
           <div className="centerButton">
-            <button type="submit">Enviar</button>
+            <button type="submit" className={isSendEmail ? "button-disable": "button"} disabled={isSendEmail ? true : false}>Enviar</button>
           </div>
         </form>
         <div className="register">
