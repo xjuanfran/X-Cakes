@@ -1,8 +1,12 @@
 import { createContext, useState, useContext, useEffect } from "react";
-import { registerRequest, loginRequest, recoverPasswordRequest } from "../api/auth";
-import {orderRequest} from "../api/product";
+import {
+  registerRequest,
+  loginRequest,
+  recoverPasswordRequest,
+  resetPasswordRequest,
+} from "../api/auth";
+import { orderRequest } from "../api/product";
 import Cookies from "js-cookie";
-
 
 export const AuthContext = createContext();
 
@@ -19,6 +23,7 @@ export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [errors, setErrors] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [isSendEmail, setIsSendEmail] = useState(false);
 
   const signUp = async (user) => {
     try {
@@ -49,13 +54,24 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  const recoveryPass= (email) => {
-    try{
-      const res = recoverPasswordRequest(email);
+  const recoveryPass = async (email) => {
+    try {
+      const res = await recoverPasswordRequest(email); //Here send the email to backend for send the email with the token
       console.log(res);
+      setIsSendEmail(true);
       return res;
+    } catch (err) {
+      setIsSendEmail(false);
+      console.log(err);
     }
-    catch(err){
+  };
+
+  const resetPass = async (data) => {
+    try {
+      const res = await resetPasswordRequest(data); // Here send the new password and the token to backend for reset the password
+      console.log(res.status);
+      return res;
+    } catch (err) {
       console.log(err);
     }
   };
@@ -69,7 +85,7 @@ export const AuthProvider = ({ children }) => {
       console.log(err.response.data);
       throw err; // Lanza el error para manejarlo en el componente
     }
-  }
+  };
 
   const localStorageValue = localStorage.getItem("userData");
   document.cookie = `userData=${localStorageValue}; path=/`.replace(/\"/g, "");
@@ -102,7 +118,11 @@ export const AuthProvider = ({ children }) => {
     function checkLogin() {
       const cookie = Cookies.get("userData");
 
-      if (cookie == "Unauthorized" || cookie == "undefined" || cookie == "null") {
+      if (
+        cookie == "Unauthorized" ||
+        cookie == "undefined" ||
+        cookie == "null"
+      ) {
         setIsAuthenticated(false);
         setLoading(false);
         return setUser(null);
@@ -119,13 +139,14 @@ export const AuthProvider = ({ children }) => {
       value={{
         signUp,
         signIn,
-        changePassWord,
         loading,
         user,
         isAuthenticated,
         errors,
         generateOrder,
-        recoveryPass
+        recoveryPass,
+        resetPass,
+        isSendEmail,
       }}
     >
       {children}
