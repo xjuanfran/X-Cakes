@@ -1,0 +1,19 @@
+name: X Tests
+
+on:
+  push:
+    branches:
+      - main
+
+jobs: 
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code 
+        uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+      - name: install packages
+        run: npm ci
+      - name: bundle
+        run: npm run build
+
