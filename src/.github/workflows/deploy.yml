@@ -14,6 +14,8 @@ jobs:
       - uses: actions/setup-node@v2
       - name: install packages
         run: npm ci
+      - name: tests
+        run: npm test
       - name: bundle
         run: npm run build
 

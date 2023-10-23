@@ -5,30 +5,38 @@ import { useAuth } from "../context/AuthContext";
 import { React, useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { CircularProgress } from "@mui/material";
 
 export default function Register() {
   const { register, handleSubmit } = useForm();
   const { recoveryPass, isSendEmail } = useAuth();
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
 
+  // This variable is used to show loader spinner when the user click the button "Enviar" in the form
+  const [loading, setLoading] = useState(false);
+
   const onSubmit = handleSubmit(async (data) => {
+    setLoading(true);
+
     await recoveryPass(data);
     // This is for show the toast message when the user click the button "Enviar" in the form depending if the email is correct or not
     setIsFormSubmitted(true);
+
+    setLoading(false);
   });
 
   useEffect(() => {
     if (isFormSubmitted) {
       if (isSendEmail) {
         toast.success(
-          "Se ha enviado el correo con el enlace de reuperación de contraseña a su correo electrónico"
+          "Se ha enviado el enlace de reuperación de contraseña a su correo electrónico"
         );
         // This variable is used to count the time before redirecting to the home page only after receiving a response from the backend
         let auxShow = true;
         if (auxShow) {
           setTimeout(() => {
             window.location.replace("/");
-          }, 6500);
+          }, 5500);
         }
       } else {
         toast.error(
@@ -39,7 +47,7 @@ export default function Register() {
         if (auxShow) {
           setTimeout(() => {
             window.location.reload();
-          }, 7000);
+          }, 4000);
         }
       }
     }
@@ -59,7 +67,7 @@ export default function Register() {
             <input type="email" {...register("email")} required />
           </div>
           <div className="centerButton">
-            <button type="submit" className={isSendEmail ? "button-disable": "button"} disabled={isSendEmail ? true : false}>Enviar</button>
+            <button type="submit" className={isFormSubmitted ? "button-disable": "button"} disabled={isFormSubmitted ? true : false}>{loading ? <CircularProgress style={{ color: "white"}} size={23}/> : "Enviar"}</button>
           </div>
         </form>
         <div className="register">
@@ -71,7 +79,7 @@ export default function Register() {
           </p>
         </div>
       </div>
-      <ToastContainer autoClose={6000} closeButton={false} />
+      <ToastContainer autoClose={isSendEmail ? 5500 : 3500} closeButton={false} />
     </div>
   );
 }
