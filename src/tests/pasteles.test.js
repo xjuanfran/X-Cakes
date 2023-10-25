@@ -10,7 +10,7 @@ describe('Sistema de Pedidos de Pasteles', () => {
     test('Realizar un nuevo pedido de pastel', () => {
         const pedido = pasteles.realizarPedido('Juan Pérez', 'Chocolate', 1, '2023-11-01');
         expect(pedido).toBeDefined();
-        expect(pedido.estado).toBe('Pendientes');
+        expect(pedido.estado).toBe('Pendiente');
     });
 
     test('Actualizar el estado de un pedido', () => {
