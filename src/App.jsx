@@ -12,6 +12,7 @@ import Buy from "./pages/Buy";
 import ShoppingCar from "./pages/ShoppingCar";
 import RecoveryPass from "./pages/RecoveryPass";
 import ConfirmPass from "./pages/PassConfirm";
+import CreateCake from "./pages/CreateCake";
 
 import ProtectedRoute from "./ProtectedRoute";
 
@@ -34,7 +35,7 @@ function App() {
           <Route element={<ProtectedRoute />}>
             <Route path="/profile" element={<Profile />} />
             <Route path="/shoppingCar" element={<ShoppingCar/>} />
-
+            <Route path="create-cake" element={<CreateCake />} />
           </Route>
         </Routes>
       </BrowserRouter>
