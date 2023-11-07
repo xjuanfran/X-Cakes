@@ -5,7 +5,7 @@ import {
   recoverPasswordRequest,
   resetPasswordRequest,
 } from "../api/auth";
-import { orderRequest } from "../api/product";
+import { createCakeRequest, orderRequest, reqCloudinary } from "../api/product";
 import Cookies from "js-cookie";
 
 export const AuthContext = createContext();
@@ -24,6 +24,7 @@ export const AuthProvider = ({ children }) => {
   const [errors, setErrors] = useState([]);
   const [loading, setLoading] = useState(true);
   const [isSendEmail, setIsSendEmail] = useState(false);
+  const [cake, setCake] = useState(null);
 
   const signUp = async (user) => {
     try {
@@ -87,6 +88,41 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  //Create Cake
+  const createCake = async (cake, img, defaultImage, cancelImg) => {
+    try {
+      //Condiction if the user don't upload an image, set the default image
+      if (img === null) {
+        cake.urlImage = defaultImage;
+        const response = await createCakeRequest(cake);
+        console.log(response);
+        return;
+      }
+      //If the user cancel the image, set the default image
+      if (cancelImg) {
+        cake.urlImage = "https://images.pexels.com/photos/1028708/pexels-photo-1028708.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1";
+        console.log(user);
+        const response = await createCakeRequest(cake);
+        console.log(response);
+        return;
+      }
+      const formData = new FormData();
+      formData.append("file", img);
+      formData.append("upload_preset", "xqabu9la");
+      formData.append("folder", "Pastelitos");
+      const data = await reqCloudinary(formData);
+      const photoCloudinary = await data.data.secure_url;
+      console.log(photoCloudinary);
+      cake.urlImage = photoCloudinary;
+
+      const response = await createCakeRequest(cake);
+      setCake(response);
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   const localStorageValue = localStorage.getItem("userData");
   document.cookie = `userData=${localStorageValue}; path=/`.replace(/\"/g, "");
 
@@ -147,6 +183,8 @@ export const AuthProvider = ({ children }) => {
         recoveryPass,
         resetPass,
         isSendEmail,
+        createCake,
+        cake
       }}
     >
       {children}
