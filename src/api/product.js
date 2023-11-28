@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API = "http://localhost:3000/api/v1";
+const API = "https://pastelito-backend.onrender.com/api/v1";
 const APICLOUDINARY = "https://api.cloudinary.com/v1_1/dmvpidbrt/image/upload"
 
 export const orderRequest = (body) => axios.post(`${API}/orderDetail`, body);
