@@ -88,7 +88,7 @@ function Navbar() {
                       <Link to="/catalogo">Catalogo</Link>
                     </li>
                     <li>
-                      <Link to="/shoppingCar">Carrito<img src={shoppingCar} className="shoppingCar"/></Link>
+                      <Link to="/shoppingCar">Car<img src={shoppingCar} className="shoppingCar"/></Link>
                     </li>
                     <li>
                       <Link to="/profile" data-tip="Perfil" data-for="profileTooltip">
